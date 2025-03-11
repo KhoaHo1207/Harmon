@@ -9,7 +9,7 @@ export const getListeners = async (sortBy) => {
       },
     });
     if (response.status === 200) {
-      return response.data;
+      return response.data.data;
     } else {
       throw new Error("Lấy danh sách người nghe thất bại");
     }

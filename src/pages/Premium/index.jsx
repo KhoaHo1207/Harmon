@@ -13,7 +13,7 @@ function Premium() {
       </h1>
 
       {premium_list && premium_list.length > 0 ? (
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl overflow-hidden p-10">
           <div className="-mx-3 flex flex-wrap sm:-mx-4 lg:justify-between">
             {premium_list.map((item, index) => (
               <Item key={index} item={item} />

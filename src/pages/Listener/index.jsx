@@ -30,10 +30,10 @@ function Listener() {
     const fetchData = async () => {
       try {
         const response = await getListeners(sortBy);
-        setListeners(response.data.items);
-        setCurrentPage(response.data.page);
-        setSize(response.data.size);
-        setTotalPages(response.data.totalPages);
+        setListeners(response.items);
+        setCurrentPage(response.page);
+        setSize(response.size);
+        setTotalPages(response.totalPages);
       } catch (error) {
         toast.error("Lỗi khi lấy danh sách người nghe");
       }
@@ -120,17 +120,19 @@ function Listener() {
           ))}
         </div>
       ) : (
-        <div className="mt-16 flex flex-col items-center text-center text-heading">
-          <p className="text-lg font-medium">
-            Hiện tại chưa có danh sách người nghe nào
-          </p>
-          <p className="text-base">Vui lòng quay lại sau</p>
-          <button
-            className="mt-6 rounded-lg bg-text px-6 py-3 font-medium text-white transition-all hover:bg-opacity-80"
-            onClick={() => navigate("/")}
-          >
-            Trở về
-          </button>
+        <div className="mx-auto flex">
+          <div className="mt-16 flex flex-col items-center text-center text-heading">
+            <p className="text-lg font-medium">
+              Hiện tại chưa có danh sách người nghe nào
+            </p>
+            <p className="text-base">Vui lòng quay lại sau</p>
+            <button
+              className="mt-6 rounded-lg bg-text px-6 py-3 font-medium text-white transition-all hover:bg-opacity-80"
+              onClick={() => navigate("/")}
+            >
+              Trở về
+            </button>
+          </div>
         </div>
       )}
     </div>

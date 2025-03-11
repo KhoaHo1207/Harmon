@@ -66,8 +66,8 @@ const Header = () => {
   }, []);
 
   const items = [
-    { key: 1, label: "Cuộc gọi", path: "/call" },
-    { key: 2, label: "Góc tâm sự", path: "/tam-su" },
+    { key: 1, label: "Cuộc gọi", path: "/calls" },
+    { key: 2, label: "Góc tâm sự", path: "/blogs" },
     { key: 3, label: "Chuyên gia", path: "/listeners" },
     { key: 4, label: "Bạn bè", path: "/friends" },
     { key: 5, label: "Premium", path: "/premium" },

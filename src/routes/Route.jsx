@@ -7,7 +7,7 @@ import Home from "../pages/Home";
 import Chat from "../pages/Chat";
 import Premium from "../pages/Premium";
 import Listener from "../pages/Listener";
-
+import Blog from "../pages/Blog";
 const ROLES = {
   CUSTOMER: "Customer",
   ADMIN: "Admin",
@@ -17,6 +17,7 @@ const publicRoutes = [
   { path: "/home", element: <Home /> },
   { path: "/premium", element: <Premium /> },
   { path: "/listeners", element: <Listener /> },
+  { path: "/blogs", element: <Blog /> },
 ];
 
 const customerRoutes = [
