@@ -6,12 +6,12 @@ import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { logout } from "../../app/slices/authSlice";
-
+import { FaFacebookMessenger } from "react-icons/fa";
+import { AiFillBell } from "react-icons/ai";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const currentPath = useLocation();
-  console.log(currentPath);
 
   const storedUser = localStorage.getItem("user");
   const user = storedUser ? JSON.parse(storedUser) : null;
@@ -66,9 +66,9 @@ const Header = () => {
   }, []);
 
   const items = [
-    { key: 1, label: "Trò chuyện", path: "/chats" },
+    { key: 1, label: "Cuộc gọi", path: "/call" },
     { key: 2, label: "Góc tâm sự", path: "/tam-su" },
-    { key: 3, label: "Chuyên gia", path: "/experts" },
+    { key: 3, label: "Chuyên gia", path: "/listeners" },
     { key: 4, label: "Bạn bè", path: "/friends" },
     { key: 5, label: "Premium", path: "/premium" },
   ];
@@ -157,9 +157,26 @@ const Header = () => {
 
         {/* Desktop/Tablet User Controls */}
         <div className="hidden items-center space-x-3 md:flex md:space-x-4">
-          <button className="rounded-full p-2 hover:bg-gray-100">
-            <GoBell className="text-xl text-gray-700" />
-          </button>
+          <div className="flex gap-4" onClick={() => navigate("/chats")}>
+            <div className="relative">
+              <button className="relative rounded-full bg-purple-600 p-2">
+                <FaFacebookMessenger className="text-lg text-white hover:opacity-80 sm:text-xl" />
+                <span className="absolute -right-2 -top-3 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white sm:h-5 sm:w-5 sm:text-xs md:h-6 md:w-6 md:text-sm">
+                  3
+                </span>
+              </button>
+            </div>
+
+            <div className="relative">
+              <button className="relative rounded-full bg-purple-600 p-2">
+                <AiFillBell className="text-lg text-white hover:opacity-80 sm:text-xl" />
+                <span className="absolute -right-2 -top-3 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white sm:h-5 sm:w-5 sm:text-xs md:h-6 md:w-6 md:text-sm">
+                  5
+                </span>
+              </button>
+            </div>
+          </div>
+
           {user ? (
             <div className="relative" ref={dropdownRef}>
               <span

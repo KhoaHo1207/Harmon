@@ -6,6 +6,7 @@ import PrivateRoute from "./PrivateRoute";
 import Home from "../pages/Home";
 import Chat from "../pages/Chat";
 import Premium from "../pages/Premium";
+import Listener from "../pages/Listener";
 
 const ROLES = {
   CUSTOMER: "Customer",
@@ -15,6 +16,7 @@ const publicRoutes = [
   { index: true, element: <Home /> },
   { path: "/home", element: <Home /> },
   { path: "/premium", element: <Premium /> },
+  { path: "/listeners", element: <Listener /> },
 ];
 
 const customerRoutes = [

@@ -5,14 +5,13 @@ import Footer from "../components/Footer";
 
 function RootLayout() {
   return (
-    <div className="relative bg-theme scrollbar-hide">
-      <div className="sticky top-0 z-50 my-3">
+    <div className="relative flex min-h-screen flex-col bg-theme scrollbar-hide">
+      <div className="sticky top-0 z-50">
         <Header />
       </div>
-      <div className="h-screen min-h-screen overflow-y-auto">
+      <div className="flex flex-1 justify-center overflow-y-auto">
         <Outlet />
       </div>
-
       <Footer />
     </div>
   );
