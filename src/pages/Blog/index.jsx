@@ -17,7 +17,7 @@ function Blog() {
     };
     fetchData();
   }, []);
-  return <div></div>;
+  return <div>Blog</div>;
 }
 
 export default Blog;

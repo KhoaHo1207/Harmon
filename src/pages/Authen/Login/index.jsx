@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Google_Logo from "../../../assets/images/Google_Logo.png";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
@@ -77,17 +77,26 @@ function Login() {
             className="w-full rounded-lg bg-text p-3 text-white transition-all hover:bg-opacity-80"
             onClick={handleLogin}
           >
-            Đăng nhập
+            Đăng Nhập
           </button>
         </form>
 
         <div className="my-5 text-sm text-heading sm:text-base">Hoặc</div>
 
-        <div className="flex w-full max-w-xs cursor-pointer items-center justify-center gap-3 rounded-lg bg-white p-3 shadow-md transition-all hover:shadow-lg">
+        <div className="flex w-full max-w-xs cursor-pointer items-center justify-center gap-3 rounded-lg bg-white p-2 shadow-md transition-all hover:shadow-lg">
           <img src={Google_Logo} alt="Google" className="h-8 w-8" />
           <p className="text-center text-sm font-medium sm:text-lg">
             Đăng nhập bằng Google
           </p>
+        </div>
+        <div className="mt-5 text-heading">
+          Bạn chưa có tài khoản?{" "}
+          <button
+            className="font-semibold"
+            onClick={() => navigate("/sign-up")}
+          >
+            Đăng ký ngay
+          </button>
         </div>
       </div>
     </main>

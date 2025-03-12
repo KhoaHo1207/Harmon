@@ -25,3 +25,17 @@ export const login = async (username, password) => {
     throw error.response?.data?.message || "Đăng nhập thất bại!";
   }
 };
+
+export const register = async (userData) => {
+  try {
+    const response = await axios.post(`${SERVER_URL}/user`, userData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Lỗi khi đăng ký:", error.response?.data || error.message);
+    throw error;
+  }
+};

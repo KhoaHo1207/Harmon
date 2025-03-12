@@ -77,7 +77,7 @@ function Home() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Hiển thị 4 items
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,

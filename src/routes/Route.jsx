@@ -8,6 +8,7 @@ import Chat from "../pages/Chat";
 import Premium from "../pages/Premium";
 import Listener from "../pages/Listener";
 import Blog from "../pages/Blog";
+import SignUp from "../pages/Authen/SignUp";
 const ROLES = {
   CUSTOMER: "Customer",
   ADMIN: "Admin",
@@ -28,6 +29,7 @@ const customerRoutes = [
 ];
 export const router = createBrowserRouter([
   { path: "login", element: <Login /> },
+  { path: "sign-up", element: <SignUp /> },
   {
     path: "/",
     element: <RootLayout />,
