@@ -9,6 +9,8 @@ import Premium from "../pages/Premium";
 import Listener from "../pages/Listener";
 import Blog from "../pages/Blog";
 import SignUp from "../pages/Authen/SignUp";
+import Friends from "../pages/Friends";
+import PersonalLayout from "../layout/PersonalLayout";
 const ROLES = {
   CUSTOMER: "Customer",
   ADMIN: "Admin",
@@ -26,6 +28,7 @@ const customerRoutes = [
     path: "chats",
     element: <Chat />,
   },
+  { path: "friends", element: <Friends /> },
 ];
 export const router = createBrowserRouter([
   { path: "login", element: <Login /> },
@@ -35,6 +38,16 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       ...publicRoutes,
+      {
+        element: <PrivateRoute allowedRoles={ROLES.CUSTOMER} />,
+        children: customerRoutes,
+      },
+    ],
+  },
+  {
+    path: "/personal",
+    element: <PersonalLayout />,
+    children: [
       {
         element: <PrivateRoute allowedRoles={ROLES.CUSTOMER} />,
         children: customerRoutes,

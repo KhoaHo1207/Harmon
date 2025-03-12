@@ -5,7 +5,7 @@ import { FaHeart, FaCoins } from "react-icons/fa6";
 import { GoStarFill, GoStar } from "react-icons/go";
 function Item({ listener }) {
   return (
-    <div className="flex flex-col gap-4 rounded-lg border-2 border-white bg-violet-50 p-3 shadow-xl transition-transform duration-300 hover:scale-105 sm:p-4 md:hover:scale-110 lg:p-5">
+    <div className="flex flex-col gap-4 rounded-lg border-2 border-white bg-violet-50 p-3 shadow-xl transition-transform duration-300 hover:scale-105 sm:p-4 lg:p-5">
       <img
         src="https://chothuestudio.com/wp-content/uploads/2023/08/a3e1b7c1e2ac37659bba6e1145a5187b.jpg"
         alt={listener.fullName}

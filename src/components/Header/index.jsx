@@ -69,7 +69,7 @@ const Header = () => {
     { key: 1, label: "Cuộc gọi", path: "/calls" },
     { key: 2, label: "Góc tâm sự", path: "/blogs" },
     { key: 3, label: "Chuyên gia", path: "/listeners" },
-    { key: 4, label: "Bạn bè", path: "/friends" },
+    { key: 4, label: "Bạn bè", path: "/personal/friends" },
     { key: 5, label: "Premium", path: "/premium" },
   ];
 
