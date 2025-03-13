@@ -157,26 +157,27 @@ const Header = () => {
 
         {/* Desktop/Tablet User Controls */}
         <div className="hidden items-center space-x-3 md:flex md:space-x-4">
-          <div className="flex gap-4" onClick={() => navigate("/chats")}>
-            <div className="relative">
-              <button className="relative rounded-full bg-purple-600 p-2">
-                <FaFacebookMessenger className="text-lg text-white hover:opacity-80 sm:text-xl" />
-                <span className="absolute -right-2 -top-3 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white sm:h-5 sm:w-5 sm:text-xs md:h-6 md:w-6 md:text-sm">
-                  3
-                </span>
-              </button>
-            </div>
+          {user && (
+            <div className="flex gap-4" onClick={() => navigate("/chats")}>
+              <div className="relative">
+                <button className="relative rounded-full bg-purple-600 p-2">
+                  <FaFacebookMessenger className="text-lg text-white hover:opacity-80 sm:text-xl" />
+                  <span className="absolute -right-2 -top-3 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white sm:h-5 sm:w-5 sm:text-xs md:h-6 md:w-6 md:text-sm">
+                    3
+                  </span>
+                </button>
+              </div>
 
-            <div className="relative">
-              <button className="relative rounded-full bg-purple-600 p-2">
-                <AiFillBell className="text-lg text-white hover:opacity-80 sm:text-xl" />
-                <span className="absolute -right-2 -top-3 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white sm:h-5 sm:w-5 sm:text-xs md:h-6 md:w-6 md:text-sm">
-                  5
-                </span>
-              </button>
+              <div className="relative">
+                <button className="relative rounded-full bg-purple-600 p-2">
+                  <AiFillBell className="text-lg text-white hover:opacity-80 sm:text-xl" />
+                  <span className="absolute -right-2 -top-3 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white sm:h-5 sm:w-5 sm:text-xs md:h-6 md:w-6 md:text-sm">
+                    5
+                  </span>
+                </button>
+              </div>
             </div>
-          </div>
-
+          )}
           {user ? (
             <div className="relative" ref={dropdownRef}>
               <span
@@ -198,13 +199,19 @@ const Header = () => {
                 <div className="absolute right-0 z-10 mt-2 w-40 rounded-lg border bg-white shadow-lg">
                   <ul className="py-2">
                     <li className="cursor-pointer px-4 py-2 hover:bg-gray-100">
-                      Hồ sơ
+                      Hồ Sơ
+                    </li>
+                    <li
+                      className="cursor-pointer px-4 py-2 hover:bg-gray-100"
+                      onClick={() => navigate("/deposit")}
+                    >
+                      Nạp Tiền
                     </li>
                     <li
                       className="cursor-pointer px-4 py-2 text-red-500 hover:bg-gray-100"
                       onClick={handleLogout}
                     >
-                      Đăng xuất
+                      Đăng Xuất
                     </li>
                   </ul>
                 </div>

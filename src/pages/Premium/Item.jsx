@@ -1,20 +1,10 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import Harmon_Logo from "../../assets/images/Harmon_Logo.png";
+import { useNavigate } from "react-router-dom";
 function Item({ item }) {
-  const description = [
-    {
-      label: "Kết bạn với 3 người bạn đồng hành",
-    },
-    {
-      label:
-        "Không giới hạn thời gian gọi, trò chuyện thoải mái để sẻ chia và lắng nghe",
-    },
-    {
-      label:
-        "2 lần đổi bạn đồng hành mỗi tháng để tìm ra sự kết nối phù hợp nhất",
-    },
-  ];
+  const navigate = useNavigate();
+
   return (
     <div className="flex w-full p-3 sm:w-1/2 sm:p-4 md:w-1/3 lg:w-1/3">
       <div className="flex h-full w-full flex-col items-center gap-3 rounded-xl bg-[#F1E0FD] p-4 transition-transform duration-300 hover:scale-105 sm:gap-4 sm:p-6 sm:hover:scale-110 md:gap-5 md:p-8 lg:p-10">
@@ -53,7 +43,10 @@ function Item({ item }) {
           </div>
         </div>
         <div className="mt-auto pt-4">
-          <button className="w-full rounded-lg bg-[#E6BFFF] px-6 py-2 text-sm font-medium text-[#8A55D4] sm:w-auto sm:px-8 sm:py-2.5 sm:text-base sm:font-semibold md:px-10 md:py-3">
+          <button
+            className="w-full rounded-lg bg-[#E6BFFF] px-6 py-2 text-sm font-medium text-[#8A55D4] sm:w-auto sm:px-8 sm:py-2.5 sm:text-base sm:font-semibold md:px-10 md:py-3"
+            onClick={() => navigate("/premium/buy")}
+          >
             Mua Ngay
           </button>
         </div>

@@ -6,7 +6,7 @@ import { updateUserDetails } from "../../../app/slices/userSlice"; // Import act
 import { IoMdArrowRoundForward, IoMdArrowRoundBack } from "react-icons/io";
 
 const validationSchema = Yup.object({
-  weight: Yup.number().required("Cân nặng không được để trống"),
+  // weight: Yup.number().required("Cân nặng không được để trống"),
   gender: Yup.string().required("Giới tính không được để trống"),
   dateOfBirth: Yup.date().required("Ngày sinh không được để trống"),
 });
@@ -17,7 +17,7 @@ function Step2({ currentStep, setCurrentStep }) {
 
   const formik = useFormik({
     initialValues: {
-      weight: userDetails.weight || "",
+      // weight: userDetails.weight || "",
       gender: userDetails.gender || "",
       dateOfBirth: userDetails.dateOfBirth || "",
     },
@@ -31,7 +31,7 @@ function Step2({ currentStep, setCurrentStep }) {
 
   return (
     <form onSubmit={formik.handleSubmit} className="mt-5 w-full">
-      <div className="mb-5 flex w-full flex-col gap-2 text-heading">
+      {/* <div className="mb-5 flex w-full flex-col gap-2 text-heading">
         <label className="font-medium" htmlFor="weight">
           Cân Nặng (Kg)
         </label>
@@ -48,7 +48,7 @@ function Step2({ currentStep, setCurrentStep }) {
         {formik.touched.weight && formik.errors.weight && (
           <p className="text-xs text-red-500">{formik.errors.weight}</p>
         )}
-      </div>
+      </div> */}
 
       <div className="mb-5 flex w-full flex-col gap-2 text-heading">
         <label className="font-medium" htmlFor="gender">

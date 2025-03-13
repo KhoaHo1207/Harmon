@@ -5,27 +5,35 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { login } from "../../../services/authService";
 import { loginSuccess } from "../../../app/slices/authSlice";
+import LoadingSpinner from "../../../components/Loading/LoadingSpinner";
+import LoadingDots from "../../../components/Loading/LoadingDots";
 
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const { token, refreshToken, user } = await login(username, password);
-      toast.success("Đăng nhập thành công!");
-      dispatch(loginSuccess({ token, refreshToken, user }));
-      navigate("/");
+      if (token) {
+        setLoading(false);
+        toast.success("Đăng nhập thành công!");
+        dispatch(loginSuccess({ token, refreshToken, user }));
+        navigate("/");
+      } else {
+        toast.error("Đăng nhập thất bại");
+      }
     } catch (error) {
       toast.error(error);
     }
   };
   return (
     <main className="flex h-screen w-full items-center justify-center bg-custom-gradient px-4">
-      <div className="flex w-full max-w-md flex-col items-center rounded-xl border border-white/20 bg-white/10 px-6 py-7 shadow-lg backdrop-blur-2xl sm:w-3/4 md:w-2/4 lg:w-1/4">
+      <div className="flex w-full max-w-md flex-col items-center rounded-xl border border-white/20 bg-white/10 px-6 py-7 shadow-2xl backdrop-blur-2xl sm:w-3/4 md:w-2/4 lg:w-1/4">
         <form className="flex w-full flex-col items-center">
           <h3 className="mb-6 text-2xl font-bold text-heading sm:text-3xl">
             ĐĂNG NHẬP
@@ -61,7 +69,7 @@ function Login() {
                 type="checkbox"
                 id="remember"
                 name="remember"
-                className="mr-2"
+                className="mr-2 accent-heading"
               />
               <label htmlFor="remember">Ghi nhớ mật khẩu</label>
             </span>
@@ -72,13 +80,16 @@ function Login() {
               Quên mật khẩu
             </p>
           </div>
-
-          <button
-            className="w-full rounded-lg bg-text p-3 text-white transition-all hover:bg-opacity-80"
-            onClick={handleLogin}
-          >
-            Đăng Nhập
-          </button>
+          {loading ? (
+            <LoadingDots />
+          ) : (
+            <button
+              className="w-full rounded-lg bg-text p-3 text-white transition-all hover:bg-opacity-80"
+              onClick={handleLogin}
+            >
+              Đăng Nhập
+            </button>
+          )}
         </form>
 
         <div className="my-5 text-sm text-heading sm:text-base">Hoặc</div>

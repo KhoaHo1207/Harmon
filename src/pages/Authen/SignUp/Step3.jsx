@@ -67,6 +67,7 @@ function Step3({ currentStep, setCurrentStep }) {
   }
   const handleRegister = async (e) => {
     e.preventDefault();
+    localStorage.setItem("email", user.email);
     try {
       const response = await register({
         userName: formik.values.userName,
@@ -83,8 +84,8 @@ function Step3({ currentStep, setCurrentStep }) {
         dispatch(clearUser());
 
         formik.resetForm();
-        toast.success("Đăng Ký thành công");
-        navigate("/login");
+        toast.success("Đang chuyển đến trang xác thực mã OTP");
+        navigate("/verify-otp");
       } else {
         toast.error("Đăng Ký thất bại");
       }

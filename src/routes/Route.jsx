@@ -11,6 +11,9 @@ import Blog from "../pages/Blog";
 import SignUp from "../pages/Authen/SignUp";
 import Friends from "../pages/Friends";
 import PersonalLayout from "../layout/PersonalLayout";
+import Verify from "../pages/Authen/Verify";
+import Buy from "../pages/Premium/Buy";
+import Deposit from "../pages/Deposit";
 const ROLES = {
   CUSTOMER: "Customer",
   ADMIN: "Admin",
@@ -19,8 +22,10 @@ const publicRoutes = [
   { index: true, element: <Home /> },
   { path: "/home", element: <Home /> },
   { path: "/premium", element: <Premium /> },
+  { path: "/premium/buy", element: <Buy /> },
   { path: "/listeners", element: <Listener /> },
   { path: "/blogs", element: <Blog /> },
+  { path: "/deposit", element: <Deposit /> },
 ];
 
 const customerRoutes = [
@@ -33,6 +38,7 @@ const customerRoutes = [
 export const router = createBrowserRouter([
   { path: "login", element: <Login /> },
   { path: "sign-up", element: <SignUp /> },
+  { path: "verify-otp", element: <Verify /> },
   {
     path: "/",
     element: <RootLayout />,

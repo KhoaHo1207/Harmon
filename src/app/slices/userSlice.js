@@ -9,7 +9,7 @@ const initialState = {
   dateOfBirth: "",
   gender: "",
   avatarUrl: "",
-  weight: 0,
+  weight: 30,
 };
 
 const userSlice = createSlice({

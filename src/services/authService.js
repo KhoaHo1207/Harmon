@@ -39,3 +39,41 @@ export const register = async (userData) => {
     throw error;
   }
 };
+
+export const verify = async (email, otp) => {
+  try {
+    const response = await axios.post(`${SERVER_URL}/user/verify-otp`, {
+      email: email,
+      otp: otp,
+    });
+    if (response.status === 200) {
+      return response.data.data;
+    } else {
+      throw new Error("LỖi khi xác thực mã OTP");
+    }
+  } catch (error) {
+    console.error(
+      "Lỗi khi xác thực mã OTP",
+      error.response?.data || error.message,
+    );
+    throw new Error("Lỗi khi xác thực OTP");
+  }
+};
+
+export const resendOtp = async (email) => {
+  try {
+    const response = await axios.post(`${SERVER_URL}/user/resend-otp`, email, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.status === 200) {
+      return response.data.data;
+    } else {
+      throw new Error("Lỗi khi gửi lại mã OTP");
+    }
+  } catch (error) {
+    console.error("Lỗi khi gửi lại mã OTP");
+    throw new Error("Lỗi khi gửi lại mã OTP");
+  }
+};

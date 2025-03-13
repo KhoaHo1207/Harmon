@@ -18,6 +18,7 @@ const validationSchema = Yup.object({
 function Step1({ currentStep, setCurrentStep }) {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.user);
+
   const formik = useFormik({
     initialValues: {
       fullName: userData.fullName || "",
