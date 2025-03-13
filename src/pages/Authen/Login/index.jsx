@@ -20,16 +20,16 @@ function Login() {
     try {
       const { token, refreshToken, user } = await login(username, password);
       if (token) {
-        setLoading(false);
         toast.success("Đăng nhập thành công!");
         dispatch(loginSuccess({ token, refreshToken, user }));
         navigate("/");
       } else {
-        setLoading(false);
         toast.error("Đăng nhập thất bại");
       }
+      setLoading(false);
     } catch (error) {
       toast.error(error);
+      setLoading(false);
     }
   };
   return (
