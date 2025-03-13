@@ -25,6 +25,7 @@ function Login() {
         dispatch(loginSuccess({ token, refreshToken, user }));
         navigate("/");
       } else {
+        setLoading(false);
         toast.error("Đăng nhập thất bại");
       }
     } catch (error) {
